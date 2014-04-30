@@ -1,0 +1,18 @@
+{
+    "name": "uecode/aws-cli-bundle",
+    "description": "Wrapper around the AWS SDK for PHP in the form of Symfony Console commands",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Mauricio Walters",
+            "email": "mwalters@undergroundelephant.com",
+            "role": "developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Uecode\\Bundle\\AwsCliBundle"}
+    },
+    "require": {
+        "aws/aws-sdk-php": "2.6.*"
+    }
+}

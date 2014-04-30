@@ -1,0 +1,7 @@
+parameters:
+#    uecode_aws_cli.example.class: Uecode\Bundle\AwsCliBundle\Example
+
+services:
+#    uecode_aws_cli.example:
+#        class: %uecode_aws_cli.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
