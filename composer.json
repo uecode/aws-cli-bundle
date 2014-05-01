@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"Uecode\\Bundle\\AwsCliBundle": ""}
+        "psr-4": {"Uecode\\Bundle\\AwsCliBundle\\": ""}
     },
     "require": {
         "aws/aws-sdk-php": "2.6.*"
