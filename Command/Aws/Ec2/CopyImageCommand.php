@@ -70,5 +70,6 @@ class CopyImageCommand extends Ec2Command
         }
 
         $result = $client->copyImage($options);
+        $output->writeln($result->get('ImageId'));
     }
 }
