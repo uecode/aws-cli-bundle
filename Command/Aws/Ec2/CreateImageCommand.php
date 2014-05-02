@@ -64,7 +64,6 @@ class CreateImageCommand extends Ec2Command
         $client = $this->getClient();
 
         $result = $client->createImage($options);
-
-        $output->wirteln($result);
+        $output->writeln($result->get('ImageId'));
     }
 }
