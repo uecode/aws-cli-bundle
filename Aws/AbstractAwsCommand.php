@@ -26,10 +26,11 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 /**
  * @author  Mauricio Walters <mwalters@undergroundelephant.com>
- * @abstract
  */
 abstract class AbstractAwsCommand extends ContainerAwareCommand
 {
+    const COMMAND_SUCCESS = 0;
+    const COMMAND_FAILURE = 1;
 
     /**
      * Authenticate with AWS and instantiate client

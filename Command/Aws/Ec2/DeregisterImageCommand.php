@@ -60,11 +60,29 @@ class DeregisterImageCommand extends Ec2Command
 
         if ($options['AmiName']) {
             $name = $options['ImageId'];
-            $image = $client->describeImages(["Filters" => [["Name" => "name", "Values" => [$name]]]]); # TODO if more than one instance is returned, warn the user
-            $imageId = $image['Images'][0]['ImageId'];
-            $options['ImageId'] = $imageId;
+            $image = $client->describeImages(
+                [
+                    "Filters" => [
+                        [
+                            "Name" => "name", "Values" => [$name]
+                        ]
+                    ]
+                ]
+            );
+            $imageCollection = $image['Images'];
+            if (count($imageCollection) > 1) {
+                $output->writeln('<error>Know that the AMI name provided matched more than one image. Please be more specific to avoid deregistering the wrong image.</error>');
+
+                return self::COMMAND_FAILURE;
+            }
+
+            $options['ImageId'] = $imageCollection[0]['ImageId'];
         }
 
-        $result = $client->deregisterImage($options);
+        $client->deregisterImage($options);
+
+        $output->writeln(sprintf('<info>Successfully deregistered image %s.</info>', $options['ImageId']));
+
+        return self::COMMAND_SUCCESS;
     }
 }
