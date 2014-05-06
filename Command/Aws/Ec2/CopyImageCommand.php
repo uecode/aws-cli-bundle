@@ -50,7 +50,7 @@ class CopyImageCommand extends Ec2Command
             ->addOption('Description', 'description', InputOption::VALUE_OPTIONAL, 'A description for the new AMI in the destination region')
             ->addOption('ClientToken', 'clienttoken', InputOption::VALUE_OPTIONAL, 'Unique, case-sensitive identifier you provide to ensure the idempotency of the request')
             ->addOption('DryRun', 'dryrun', InputOption::VALUE_NONE, null)
-            ->addOption('AmiName', 'aminame', InputOption::VALUE_NONE, 'Use AMI name instead if ID')
+            ->addOption('AmiName', 'aminame', InputOption::VALUE_NONE, 'Use AMI name instead of ID')
         ;
     }
 
@@ -65,12 +65,29 @@ class CopyImageCommand extends Ec2Command
 
         if ($options['AmiName']) {
             $name = $options['SourceImageId'];
-            $image = $client->describeImages(["Filters" => [["Name" => "name", "Values" => [$name]]]]); # TODO if more than one instance is returned, warn the user
-            $sourceImageId = $image['Images'][0]['ImageId'];
-            $options['SourceImageId'] = $sourceImageId;
+            $image = $client->describeImages(
+                [
+                    "Filters" => [
+                        [
+                            "Name" => "name",
+                            "Values" => [$name]
+                        ]
+                    ]
+                ]
+            );
+            $imageCollection = $image['Images'];
+            if (count($imageCollection) > 1) {
+                $output->writeln('<error>Know that the AMI name provided matched more than one image. Please be more specific to avoid copying the wrong image.</error>');
+
+                return self::COMMAND_FAILURE;
+            }
+
+            $options['SourceImageId'] = $imageCollection[0]['ImageId'];
         }
 
         $result = $client->copyImage($options);
-        $output->writeln($result->get('ImageId'));
+        $output->writeln(sprintf('<info>Successfully copied image %s.</info>', $result->get('ImageId')));
+
+        return self::COMMAND_SUCCESS;
     }
 }

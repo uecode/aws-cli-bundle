@@ -47,9 +47,10 @@ class CreateImageCommand extends Ec2Command
             ->addArgument('Name', InputArgument::REQUIRED, 'A name for the new image.')
             ->addArgument('InstanceId', InputArgument::REQUIRED, 'The ID of the instance')
             ->addArgument('Description', InputArgument::OPTIONAL, 'A description for the new image.')
-            ->addOption('BlockDeviceMappings', 'mappings', InputOption::VALUE_OPTIONAL, 'Information about one or more block device mappings. Takes JSON')
+            ->addOption('BlockDeviceMappings', 'mappings', InputOption::VALUE_OPTIONAL, 'Information about one or more block device mappings. Takes JSON.')
             ->addOption('NoReboot', 'noreboot', InputOption::VALUE_NONE, 'Amazon EC2 will not shut down the instance before creating the image. Filesystem integrity is not guaranteed.')
-            ->addOption('DryRun', 'dryrun', InputOption::VALUE_NONE, null);
+            ->addOption('DryRun', 'dryrun', InputOption::VALUE_NONE, null)
+        ;
     }
 
     /**
@@ -62,8 +63,9 @@ class CreateImageCommand extends Ec2Command
         $options['BlockDeviceMappings'] = json_decode($options['BlockDeviceMappings']);
 
         $client = $this->getClient();
-
         $result = $client->createImage($options);
-        $output->writeln($result->get('ImageId'));
+        $output->writeln('AMI Image created with id '.$result->get('ImageId'));
+
+        return self::COMMAND_SUCCESS;
     }
 }

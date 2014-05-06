@@ -70,13 +70,13 @@ class DeregisterImageCommand extends Ec2Command
                 ]
             );
             $imageCollection = $image['Images'];
-            $imageId = $imageCollection[0]['ImageId'];
             if (count($imageCollection) > 1) {
                 $output->writeln('<error>Know that the AMI name provided matched more than one image. Please be more specific to avoid deregistering the wrong image.</error>');
 
                 return self::COMMAND_FAILURE;
             }
-            $options['ImageId'] = $imageId;
+
+            $options['ImageId'] = $imageCollection[0]['ImageId'];
         }
 
         $client->deregisterImage($options);

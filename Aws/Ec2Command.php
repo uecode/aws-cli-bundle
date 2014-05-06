@@ -40,12 +40,12 @@ class Ec2Command extends AbstractAwsCommand
     {
         $credentials = $this->getCredentials();
 
-        $client = Ec2Client::factory(array(
-            'key'    => $credentials['aws_api_key'],
-            'secret' => $credentials['aws_api_secret'],
-            'region' => $credentials['aws_region'],
-        ));
-
-        return $client;
+        return Ec2Client::factory(
+            array(
+                'key'    => $credentials['aws_api_key'],
+                'secret' => $credentials['aws_api_secret'],
+                'region' => $credentials['aws_region'],
+            )
+        );
     }
 }
