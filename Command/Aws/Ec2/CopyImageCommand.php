@@ -50,7 +50,8 @@ class CopyImageCommand extends Ec2Command
             ->addOption('Description', 'description', InputOption::VALUE_OPTIONAL, 'A description for the new AMI in the destination region')
             ->addOption('ClientToken', 'clienttoken', InputOption::VALUE_OPTIONAL, 'Unique, case-sensitive identifier you provide to ensure the idempotency of the request')
             ->addOption('DryRun', 'dryrun', InputOption::VALUE_NONE, null)
-            ->addOption('AmiName', 'aminame', InputOption::VALUE_NONE, 'Use AMI name instead if ID');
+            ->addOption('AmiName', 'aminame', InputOption::VALUE_NONE, 'Use AMI name instead if ID')
+        ;
     }
 
     /**
