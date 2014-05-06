@@ -60,7 +60,9 @@ class DeregisterImageCommand extends Ec2Command
 
         if ($options['AmiName']) {
             $name = $options['ImageId'];
-            $image = $client->describeImages(["Filters" => [["Name" => "name", "Values" => [$name]]]]); # TODO if more than one instance is returned, warn the user
+            $image = $client->describeImages(
+                ["Filters" => [["Name" => "name", "Values" => [$name]]]]
+            );
             $imageId = $image['Images'][0]['ImageId'];
             $options['ImageId'] = $imageId;
         }
