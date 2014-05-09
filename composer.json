@@ -14,5 +14,9 @@
     },
     "require": {
         "aws/aws-sdk-php": "2.6.*"
+    },
+    "require-dev": {
+        "symfony/console": "~2.4.0",
+        "symfony/framework-bundle": "~2.4.0"
     }
 }
