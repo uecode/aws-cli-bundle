@@ -27,7 +27,7 @@ use Aws\Ec2\Ec2Client;
 /**
  * Authenticates with AWS for use with EC2 commands
  * 
- * @author  Mauricio Walters <mwalters@undergroundelephant.com>
+ * @author Mauricio Walters <mwalters@undergroundelephant.com>
  */
 class Ec2Command extends AbstractAwsCommand
 {

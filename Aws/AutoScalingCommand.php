@@ -36,7 +36,8 @@ class AutoScalingCommand extends AbstractAwsCommand
      *
      * @return AutoScalingClient
      */
-    protected function getClient() {
+    protected function getClient()
+    {
         $credentials = $this->getCredentials();
 
         $client = AutoScalingClient::factory(array(
