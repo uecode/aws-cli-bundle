@@ -36,13 +36,12 @@ abstract class AbstractAwsCommand extends ContainerAwareCommand
      * Authenticate with AWS and instantiate client
      * 
      * @abstract
-     * @return Client
      */
     abstract protected function getClient();
 
     /**
      * Get AWS API credentials from parameters.yml
-     * 
+     *
      * @return array
      */
     protected function getCredentials()
