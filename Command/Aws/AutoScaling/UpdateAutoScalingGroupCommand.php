@@ -28,7 +28,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Uecode\Bundle\AwsCliBundle\Aws\AutoScalingCommand;
 
-
+/**
+ * Update AutoScaling Group Command
+ *
+ * @link   http://docs.aws.amazon.com/aws-sdk-php/latest/class-Aws.AutoScaling.AutoScalingClient.html#_updateAutoScalingGroup
+ * @author Mauricio Walters <mwalters@undergroundelephant.com>
+ */
 class UpdateAutoScalingGroupCommand extends AutoScalingCommand {
     protected function configure()
     {
