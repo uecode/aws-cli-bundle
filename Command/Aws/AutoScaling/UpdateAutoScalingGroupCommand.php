@@ -42,69 +42,69 @@ class UpdateAutoScalingGroupCommand extends AutoScalingCommand {
             )
             ->addOption(
                 'LaunchConfigurationName',
-                'launchconfigurationname',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The name of the launch configuration'
             )
             ->addOption(
                 'MinSize',
-                'minsize',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The minimum size of the Auto Scaling group'
             )
             ->addOption(
                 'MaxSize',
-                'maxsize',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The maximum size of the Auto Scaling group'
             )
             ->addOption(
                 'DesiredCapacity',
-                'desiredcapacity',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The desired capacity for the Auto Scaling group'
             )
             ->addOption(
                 'DefaultCooldown',
-                'defaultcooldown',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The amount of time, in seconds, after a scaling activity completes
                 before any further scaling activities can start'
             )
             ->addOption(
                 'AvailabilityZones',
-                'availabiltyzones',
+                null,
                 InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
                 'Availability Zones for the group'
             )
             ->addOption(
                 'HealthCheckType',
-                'healthchecktype',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The type of health check for the instances in the Auto Scaling group'
             )
             ->addOption(
                 'HealthCheckGracePeriod',
-                'healthcheckgraceperiod',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The length of time that Auto Scaling waits before checking an instance\'s health status'
             )
             ->addOption(
                 'PlacementGroup',
-                'placementgroup',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The name of the cluster placement group, if applicable'
             )
             ->addOption(
                 'VPCZoneIdentifier',
-                'vpczoneidentifier',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The subnet identifier for the Amazon VPC connection, if applicable.
                 You can specify several subnets in a comma-separated list'
             )
             ->addOption(
                 'TerminationPolicies',
-                'terminationpolicies',
+                null,
                 InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
                 'A standalone termination policy or a list of termination policies
                 used to select the instance to terminate'

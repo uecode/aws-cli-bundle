@@ -51,67 +51,67 @@ class CreateLaunchConfigurationCommand extends AutoScalingCommand
             )
             ->AddOption(
                 'ImageId',
-                'imageid',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'Unique ID of the Amazon Machine Image (AMI) you want to use to launch your EC2 instances'
             )
             ->AddOption(
                 'KeyName',
-                'keyname',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The name of the Amazon EC2 key pair'
             )
             ->AddOption(
                 'SecurityGroups',
-                'securitygroups',
+                null,
                 InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
                 'The security groups with which to associate Amazon EC2 or Amazon VPC instances.'
             )
             ->AddOption(
                 'UserData',
-                'userdata',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The user data to make available to the launched Amazon EC2 instances'
             )
             ->AddOption(
                 'InstanceId',
-                'instanceid',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The ID of the Amazon EC2 instance you want to use to create the launch configuration'
             )
             ->AddOption(
                 'InstanceType',
-                'instancetype',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The instance type of the Amazon EC2 instance'
             )
             ->AddOption(
                 'KernelId',
-                'kernelid',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The ID of the kernel associated with the Amazon EC2 AMI'
             )
             ->AddOption(
                 'RamdiskId',
-                'ramdiskid',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The ID of the RAM disk associated with the Amazon EC2 AMI'
             )
             ->AddOption(
                 'BlockDeviceMappings',
-                'blockdevicemappings',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'A list of mappings that specify how block devices are exposed to the instance. Takes JSON'
             )
             ->AddOption(
                 'InstanceMonitoring',
-                'instancemonitoring',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'Enables detailed monitoring if it is disabled. true/false'
             )
             ->AddOption(
                 'SpotPrice',
-                'spotprice',
+                null,
                 InputOption::VALUE_REQUIRED,
                 'The maximum hourly price to be paid for any Spot Instance launched to fulfill the request'
             );
