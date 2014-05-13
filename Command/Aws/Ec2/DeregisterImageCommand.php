@@ -32,7 +32,7 @@ use Uecode\Bundle\AwsCliBundle\Aws\Ec2Command;
  * Deregister Image command
  * 
  * @link http://docs.aws.amazon.com/aws-sdk-php/latest/class-Aws.Ec2.Ec2Client.html#_deregisterImage
- * @author  Mauricio Walters <mwalters@undergroundelephant.com>
+ * @author Mauricio Walters <mwalters@undergroundelephant.com>
  */
 class DeregisterImageCommand extends Ec2Command
 {
